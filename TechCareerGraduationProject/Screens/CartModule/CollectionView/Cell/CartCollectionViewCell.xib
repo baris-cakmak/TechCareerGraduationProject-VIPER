@@ -1,0 +1,158 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="19529" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES">
+    <device id="retina4_0" orientation="portrait" appearance="light"/>
+    <dependencies>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="19519"/>
+        <capability name="Named colors" minToolsVersion="9.0"/>
+        <capability name="Safe area layout guides" minToolsVersion="9.0"/>
+        <capability name="System colors in document resources" minToolsVersion="11.0"/>
+        <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
+    </dependencies>
+    <objects>
+        <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner"/>
+        <placeholder placeholderIdentifier="IBFirstResponder" id="-2" customClass="UIResponder"/>
+        <collectionViewCell opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" reuseIdentifier="CartCollectionViewCell" id="gTV-IL-0wX" customClass="CartCollectionViewCell" customModule="TechCareerGraduationProject" customModuleProvider="target">
+            <rect key="frame" x="0.0" y="0.0" width="434" height="159"/>
+            <autoresizingMask key="autoresizingMask"/>
+            <view key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center">
+                <rect key="frame" x="0.0" y="0.0" width="434" height="159"/>
+                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                <subviews>
+                    <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="SgL-6T-WpQ">
+                        <rect key="frame" x="0.0" y="0.0" width="434" height="159"/>
+                        <subviews>
+                            <visualEffectView opaque="NO" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="tJc-sr-ood" customClass="CustomBlurView" customModule="TechCareerGraduationProject" customModuleProvider="target">
+                                <rect key="frame" x="0.0" y="0.0" width="434" height="159"/>
+                                <view key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" insetsLayoutMarginsFromSafeArea="NO" id="Ga3-LQ-vFe">
+                                    <rect key="frame" x="0.0" y="0.0" width="434" height="159"/>
+                                    <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                                    <subviews>
+                                        <stackView opaque="NO" contentMode="scaleToFill" alignment="center" spacing="30" translatesAutoresizingMaskIntoConstraints="NO" id="dis-6O-yZS">
+                                            <rect key="frame" x="15" y="5" width="414" height="154"/>
+                                            <subviews>
+                                                <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" spacing="15" translatesAutoresizingMaskIntoConstraints="NO" id="oq8-bb-Inq">
+                                                    <rect key="frame" x="0.0" y="0.0" width="268.5" height="154"/>
+                                                    <subviews>
+                                                        <stackView opaque="NO" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="6GS-65-e8d">
+                                                            <rect key="frame" x="0.0" y="0.0" width="268.5" height="24"/>
+                                                            <subviews>
+                                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" horizontalCompressionResistancePriority="751" verticalCompressionResistancePriority="751" text="Izgara Tavuk" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="NdW-zO-mxQ">
+                                                                    <rect key="frame" x="0.0" y="0.0" width="268.5" height="24"/>
+                                                                    <fontDescription key="fontDescription" type="boldSystem" pointSize="20"/>
+                                                                    <nil key="textColor"/>
+                                                                    <nil key="highlightedColor"/>
+                                                                </label>
+                                                            </subviews>
+                                                        </stackView>
+                                                        <stackView opaque="NO" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="8yd-Tx-7HE">
+                                                            <rect key="frame" x="0.0" y="39" width="268.5" height="61"/>
+                                                            <subviews>
+                                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" horizontalCompressionResistancePriority="751" verticalCompressionResistancePriority="751" text="ASDĞLPASĞDLĞASLDĞALSDĞPALSDPĞALSDĞPALSDĞPALSDĞPALSDĞASLD" textAlignment="natural" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Kwc-5b-84D">
+                                                                    <rect key="frame" x="0.0" y="0.0" width="268.5" height="61"/>
+                                                                    <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                                                    <color key="textColor" systemColor="secondaryLabelColor"/>
+                                                                    <nil key="highlightedColor"/>
+                                                                </label>
+                                                            </subviews>
+                                                        </stackView>
+                                                        <stackView opaque="NO" contentMode="scaleToFill" spacing="12" translatesAutoresizingMaskIntoConstraints="NO" id="0LF-aY-Hof">
+                                                            <rect key="frame" x="0.0" y="115" width="268.5" height="39"/>
+                                                            <subviews>
+                                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" horizontalCompressionResistancePriority="752" verticalCompressionResistancePriority="751" text="Price" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="uOR-SM-QoX">
+                                                                    <rect key="frame" x="0.0" y="0.0" width="100.5" height="39"/>
+                                                                    <fontDescription key="fontDescription" type="system" weight="semibold" pointSize="18"/>
+                                                                    <nil key="textColor"/>
+                                                                    <nil key="highlightedColor"/>
+                                                                </label>
+                                                                <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="lrq-uX-haq" customClass="GMStepper" customModule="GMStepper">
+                                                                    <rect key="frame" x="112.5" y="0.0" width="156" height="39"/>
+                                                                    <color key="backgroundColor" name="blurBackground2"/>
+                                                                    <constraints>
+                                                                        <constraint firstAttribute="width" secondItem="lrq-uX-haq" secondAttribute="height" multiplier="4" id="uvg-hy-GMC"/>
+                                                                    </constraints>
+                                                                </view>
+                                                            </subviews>
+                                                        </stackView>
+                                                    </subviews>
+                                                </stackView>
+                                                <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" translatesAutoresizingMaskIntoConstraints="NO" id="VcA-i7-oH6">
+                                                    <rect key="frame" x="298.5" y="0.0" width="115.5" height="154"/>
+                                                    <subviews>
+                                                        <button opaque="NO" contentMode="scaleAspectFill" contentHorizontalAlignment="right" contentVerticalAlignment="fill" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Arv-uh-qJJ">
+                                                            <rect key="frame" x="0.0" y="0.0" width="115.5" height="38.5"/>
+                                                            <constraints>
+                                                                <constraint firstAttribute="width" secondItem="Arv-uh-qJJ" secondAttribute="height" multiplier="3" id="WPY-sX-wPl"/>
+                                                            </constraints>
+                                                            <color key="tintColor" name="tabBarTint"/>
+                                                            <state key="normal" title="Button"/>
+                                                            <buttonConfiguration key="configuration" style="plain" image="trash.fill" catalog="system"/>
+                                                            <connections>
+                                                                <action selector="didTapDeleteButtton:" destination="gTV-IL-0wX" eventType="touchUpInside" id="QHf-as-jWU"/>
+                                                            </connections>
+                                                        </button>
+                                                        <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" horizontalCompressionResistancePriority="751" verticalCompressionResistancePriority="751" image="kahve" translatesAutoresizingMaskIntoConstraints="NO" id="rA7-ai-Vxg">
+                                                            <rect key="frame" x="0.0" y="38.5" width="115.5" height="115.5"/>
+                                                            <constraints>
+                                                                <constraint firstAttribute="width" secondItem="rA7-ai-Vxg" secondAttribute="height" id="KPy-Cy-k3v"/>
+                                                            </constraints>
+                                                        </imageView>
+                                                    </subviews>
+                                                </stackView>
+                                            </subviews>
+                                        </stackView>
+                                    </subviews>
+                                    <constraints>
+                                        <constraint firstItem="dis-6O-yZS" firstAttribute="top" secondItem="Ga3-LQ-vFe" secondAttribute="top" constant="5" id="EDL-iv-3hC"/>
+                                        <constraint firstAttribute="bottom" secondItem="dis-6O-yZS" secondAttribute="bottom" id="G9u-Jc-ccR"/>
+                                        <constraint firstItem="dis-6O-yZS" firstAttribute="leading" secondItem="Ga3-LQ-vFe" secondAttribute="leading" constant="15" id="my8-BH-qlK"/>
+                                        <constraint firstAttribute="trailing" secondItem="dis-6O-yZS" secondAttribute="trailing" constant="5" id="zQx-gz-sUb"/>
+                                    </constraints>
+                                </view>
+                                <blurEffect style="systemUltraThinMaterial"/>
+                            </visualEffectView>
+                        </subviews>
+                        <color key="backgroundColor" name="blurBackground"/>
+                        <constraints>
+                            <constraint firstItem="tJc-sr-ood" firstAttribute="leading" secondItem="SgL-6T-WpQ" secondAttribute="leading" id="KXZ-Me-iTf"/>
+                            <constraint firstAttribute="bottom" secondItem="tJc-sr-ood" secondAttribute="bottom" id="UHZ-M6-eBT"/>
+                            <constraint firstAttribute="trailing" secondItem="tJc-sr-ood" secondAttribute="trailing" id="Wyd-Zv-t3H"/>
+                            <constraint firstItem="tJc-sr-ood" firstAttribute="top" secondItem="SgL-6T-WpQ" secondAttribute="top" id="XIr-EU-M9B"/>
+                        </constraints>
+                    </view>
+                </subviews>
+            </view>
+            <viewLayoutGuide key="safeArea" id="ZTg-uK-7eu"/>
+            <constraints>
+                <constraint firstItem="SgL-6T-WpQ" firstAttribute="top" secondItem="gTV-IL-0wX" secondAttribute="top" id="2MZ-KN-7RX"/>
+                <constraint firstItem="SgL-6T-WpQ" firstAttribute="leading" secondItem="gTV-IL-0wX" secondAttribute="leading" id="6R1-EQ-Nka"/>
+                <constraint firstAttribute="bottom" secondItem="SgL-6T-WpQ" secondAttribute="bottom" id="U8F-gJ-fUs"/>
+                <constraint firstAttribute="trailing" secondItem="SgL-6T-WpQ" secondAttribute="trailing" id="Wd4-Gh-bUM"/>
+            </constraints>
+            <size key="customSize" width="437" height="159"/>
+            <connections>
+                <outlet property="mealDescriptionLabel" destination="Kwc-5b-84D" id="8wi-fT-3ZW"/>
+                <outlet property="mealImageVİew" destination="rA7-ai-Vxg" id="nJA-9b-HIX"/>
+                <outlet property="mealName" destination="NdW-zO-mxQ" id="QIS-WN-QcL"/>
+                <outlet property="priceLabel" destination="uOR-SM-QoX" id="eEr-B0-V5V"/>
+                <outlet property="stepperView" destination="lrq-uX-haq" id="Ef4-bE-1aL"/>
+            </connections>
+            <point key="canvasLocation" x="56" y="90"/>
+        </collectionViewCell>
+    </objects>
+    <resources>
+        <image name="kahve" width="128" height="128"/>
+        <image name="trash.fill" catalog="system" width="121" height="128"/>
+        <namedColor name="blurBackground">
+            <color red="1" green="1" blue="1" alpha="0.22300000488758087" colorSpace="custom" customColorSpace="sRGB"/>
+        </namedColor>
+        <namedColor name="blurBackground2">
+            <color red="1" green="1" blue="1" alpha="0.5" colorSpace="custom" customColorSpace="sRGB"/>
+        </namedColor>
+        <namedColor name="tabBarTint">
+            <color red="0.87800002098083496" green="0.3449999988079071" blue="0.75700002908706665" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
+        </namedColor>
+        <systemColor name="secondaryLabelColor">
+            <color red="0.23529411764705882" green="0.23529411764705882" blue="0.2627450980392157" alpha="0.59999999999999998" colorSpace="custom" customColorSpace="sRGB"/>
+        </systemColor>
+    </resources>
+</document>

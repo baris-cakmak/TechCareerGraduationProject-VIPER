@@ -1,0 +1,180 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="19529" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES">
+    <device id="retina6_1" orientation="portrait" appearance="light"/>
+    <dependencies>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="19519"/>
+        <capability name="Named colors" minToolsVersion="9.0"/>
+        <capability name="Safe area layout guides" minToolsVersion="9.0"/>
+        <capability name="System colors in document resources" minToolsVersion="11.0"/>
+        <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
+    </dependencies>
+    <objects>
+        <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner"/>
+        <placeholder placeholderIdentifier="IBFirstResponder" id="-2" customClass="UIResponder"/>
+        <collectionViewCell opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" id="gTV-IL-0wX" customClass="HomeCollectionViewCell" customModule="TechCareerGraduationProject" customModuleProvider="target">
+            <rect key="frame" x="0.0" y="0.0" width="457" height="253"/>
+            <autoresizingMask key="autoresizingMask"/>
+            <view key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center">
+                <rect key="frame" x="0.0" y="0.0" width="457" height="253"/>
+                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                <subviews>
+                    <visualEffectView opaque="NO" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="bSL-Wx-UHe">
+                        <rect key="frame" x="0.0" y="0.0" width="457" height="253"/>
+                        <view key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" insetsLayoutMarginsFromSafeArea="NO" id="bdx-oq-j66">
+                            <rect key="frame" x="0.0" y="0.0" width="457" height="253"/>
+                            <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        </view>
+                        <blurEffect style="systemUltraThinMaterialDark"/>
+                    </visualEffectView>
+                    <stackView opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" axis="vertical" alignment="center" spacing="8" translatesAutoresizingMaskIntoConstraints="NO" id="pY2-el-ldd">
+                        <rect key="frame" x="0.0" y="0.0" width="457" height="243"/>
+                        <subviews>
+                            <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="addPhotoImage" translatesAutoresizingMaskIntoConstraints="NO" id="zxu-nZ-5Ar" customClass="CustomUIImageView" customModule="TechCareerGraduationProject" customModuleProvider="target">
+                                <rect key="frame" x="158" y="0.0" width="141" height="141"/>
+                                <constraints>
+                                    <constraint firstAttribute="width" secondItem="zxu-nZ-5Ar" secondAttribute="height" multiplier="1:1" id="HMF-um-gcL"/>
+                                </constraints>
+                                <userDefinedRuntimeAttributes>
+                                    <userDefinedRuntimeAttribute type="number" keyPath="shadowOffset">
+                                        <integer key="value" value="8"/>
+                                    </userDefinedRuntimeAttribute>
+                                    <userDefinedRuntimeAttribute type="color" keyPath="shadowColor">
+                                        <color key="value" name="shadow"/>
+                                    </userDefinedRuntimeAttribute>
+                                    <userDefinedRuntimeAttribute type="number" keyPath="shadowRadius">
+                                        <real key="value" value="8"/>
+                                    </userDefinedRuntimeAttribute>
+                                    <userDefinedRuntimeAttribute type="number" keyPath="borderWidth">
+                                        <real key="value" value="0.0"/>
+                                    </userDefinedRuntimeAttribute>
+                                    <userDefinedRuntimeAttribute type="number" keyPath="shadowOpacity">
+                                        <real key="value" value="0.80000000000000004"/>
+                                    </userDefinedRuntimeAttribute>
+                                </userDefinedRuntimeAttributes>
+                            </imageView>
+                            <visualEffectView opaque="NO" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="yYX-Vb-mNz">
+                                <rect key="frame" x="0.0" y="149" width="457" height="43"/>
+                                <view key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" insetsLayoutMarginsFromSafeArea="NO" id="aq5-q9-ThR">
+                                    <rect key="frame" x="0.0" y="0.0" width="457" height="43"/>
+                                    <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                                    <subviews>
+                                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Izgara Tavuk" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="6jx-c8-fSu">
+                                            <rect key="frame" x="174.5" y="10.5" width="108.5" height="21.5"/>
+                                            <fontDescription key="fontDescription" type="boldSystem" pointSize="18"/>
+                                            <color key="textColor" systemColor="secondarySystemGroupedBackgroundColor"/>
+                                            <nil key="highlightedColor"/>
+                                        </label>
+                                    </subviews>
+                                    <constraints>
+                                        <constraint firstItem="6jx-c8-fSu" firstAttribute="centerY" secondItem="aq5-q9-ThR" secondAttribute="centerY" id="6iA-eB-S2f"/>
+                                        <constraint firstItem="6jx-c8-fSu" firstAttribute="centerX" secondItem="aq5-q9-ThR" secondAttribute="centerX" id="G9o-Sp-DRx"/>
+                                    </constraints>
+                                </view>
+                                <vibrancyEffect style="fill">
+                                    <blurEffect style="dark"/>
+                                </vibrancyEffect>
+                            </visualEffectView>
+                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="MRe-ig-8Fi" customClass="CustomView" customModule="TechCareerGraduationProject" customModuleProvider="target">
+                                <rect key="frame" x="13" y="200" width="431" height="43"/>
+                                <subviews>
+                                    <visualEffectView opaque="NO" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="zRF-II-2vx" customClass="CustomBlurView" customModule="TechCareerGraduationProject" customModuleProvider="target">
+                                        <rect key="frame" x="0.0" y="0.0" width="431" height="43"/>
+                                        <view key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" insetsLayoutMarginsFromSafeArea="NO" id="Y7y-y3-jAc">
+                                            <rect key="frame" x="0.0" y="0.0" width="431" height="43"/>
+                                            <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                                            <subviews>
+                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="$ 199" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="YbR-n7-85L">
+                                                    <rect key="frame" x="191.5" y="11" width="48.5" height="21.5"/>
+                                                    <fontDescription key="fontDescription" type="boldSystem" pointSize="18"/>
+                                                    <nil key="textColor"/>
+                                                    <nil key="highlightedColor"/>
+                                                </label>
+                                            </subviews>
+                                            <constraints>
+                                                <constraint firstItem="YbR-n7-85L" firstAttribute="centerX" secondItem="Y7y-y3-jAc" secondAttribute="centerX" id="NeD-lX-Pbx"/>
+                                                <constraint firstItem="YbR-n7-85L" firstAttribute="centerY" secondItem="Y7y-y3-jAc" secondAttribute="centerY" id="gPd-Yc-3fU"/>
+                                            </constraints>
+                                        </view>
+                                        <blurEffect style="light"/>
+                                        <userDefinedRuntimeAttributes>
+                                            <userDefinedRuntimeAttribute type="number" keyPath="cornerRadius">
+                                                <real key="value" value="16"/>
+                                            </userDefinedRuntimeAttribute>
+                                        </userDefinedRuntimeAttributes>
+                                    </visualEffectView>
+                                </subviews>
+                                <color key="backgroundColor" name="blurBackground"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="43" id="3tK-8t-ns5"/>
+                                    <constraint firstItem="zRF-II-2vx" firstAttribute="leading" secondItem="MRe-ig-8Fi" secondAttribute="leading" id="GOw-S4-oHg"/>
+                                    <constraint firstAttribute="bottom" secondItem="zRF-II-2vx" secondAttribute="bottom" id="NRY-oB-rdi"/>
+                                    <constraint firstItem="zRF-II-2vx" firstAttribute="top" secondItem="MRe-ig-8Fi" secondAttribute="top" id="P8o-Fh-Mn3"/>
+                                    <constraint firstAttribute="trailing" secondItem="zRF-II-2vx" secondAttribute="trailing" id="lKL-2m-x2n"/>
+                                </constraints>
+                                <userDefinedRuntimeAttributes>
+                                    <userDefinedRuntimeAttribute type="number" keyPath="cornerRadius">
+                                        <real key="value" value="16"/>
+                                    </userDefinedRuntimeAttribute>
+                                    <userDefinedRuntimeAttribute type="number" keyPath="shadowOpacity">
+                                        <real key="value" value="0.5"/>
+                                    </userDefinedRuntimeAttribute>
+                                    <userDefinedRuntimeAttribute type="number" keyPath="shadowOffset">
+                                        <integer key="value" value="20"/>
+                                    </userDefinedRuntimeAttribute>
+                                    <userDefinedRuntimeAttribute type="color" keyPath="shadowColor">
+                                        <color key="value" name="shadow"/>
+                                    </userDefinedRuntimeAttribute>
+                                    <userDefinedRuntimeAttribute type="number" keyPath="shadowRadius">
+                                        <real key="value" value="15"/>
+                                    </userDefinedRuntimeAttribute>
+                                </userDefinedRuntimeAttributes>
+                            </view>
+                        </subviews>
+                        <constraints>
+                            <constraint firstItem="zxu-nZ-5Ar" firstAttribute="height" secondItem="pY2-el-ldd" secondAttribute="height" multiplier="0.58" id="2nT-Ok-6cD"/>
+                            <constraint firstItem="MRe-ig-8Fi" firstAttribute="leading" secondItem="pY2-el-ldd" secondAttribute="leading" constant="13" id="3wb-fm-VpA"/>
+                            <constraint firstAttribute="trailing" secondItem="MRe-ig-8Fi" secondAttribute="trailing" constant="13" id="4NA-Dn-R2K"/>
+                            <constraint firstAttribute="trailing" secondItem="yYX-Vb-mNz" secondAttribute="trailing" id="8Zb-Fh-paK"/>
+                            <constraint firstItem="yYX-Vb-mNz" firstAttribute="leading" secondItem="pY2-el-ldd" secondAttribute="leading" id="cx0-Ce-lrh"/>
+                        </constraints>
+                    </stackView>
+                </subviews>
+            </view>
+            <viewLayoutGuide key="safeArea" id="ZTg-uK-7eu"/>
+            <constraints>
+                <constraint firstAttribute="bottom" secondItem="bSL-Wx-UHe" secondAttribute="bottom" id="04V-3S-Foj"/>
+                <constraint firstAttribute="bottom" secondItem="pY2-el-ldd" secondAttribute="bottom" constant="10" id="Gve-U5-8BT"/>
+                <constraint firstItem="pY2-el-ldd" firstAttribute="top" secondItem="gTV-IL-0wX" secondAttribute="top" id="Po7-QI-X3t"/>
+                <constraint firstItem="bSL-Wx-UHe" firstAttribute="leading" secondItem="gTV-IL-0wX" secondAttribute="leading" id="W1r-lT-r8h"/>
+                <constraint firstAttribute="trailing" secondItem="bSL-Wx-UHe" secondAttribute="trailing" id="YRl-Qt-boa"/>
+                <constraint firstItem="pY2-el-ldd" firstAttribute="leading" secondItem="gTV-IL-0wX" secondAttribute="leading" id="eda-tR-bkw"/>
+                <constraint firstAttribute="trailing" secondItem="pY2-el-ldd" secondAttribute="trailing" id="hrh-0A-63j"/>
+                <constraint firstItem="bSL-Wx-UHe" firstAttribute="top" secondItem="gTV-IL-0wX" secondAttribute="top" id="ysU-0D-jpE"/>
+            </constraints>
+            <size key="customSize" width="521" height="355"/>
+            <connections>
+                <outlet property="mealImageView" destination="zxu-nZ-5Ar" id="vyO-UI-4ch"/>
+                <outlet property="mealNameLabel" destination="6jx-c8-fSu" id="47u-3M-9vU"/>
+                <outlet property="mealPriceLabel" destination="YbR-n7-85L" id="FmG-QG-jab"/>
+            </connections>
+            <point key="canvasLocation" x="39.855072463768117" y="159.70982142857142"/>
+        </collectionViewCell>
+    </objects>
+    <designables>
+        <designable name="zxu-nZ-5Ar">
+            <size key="intrinsicContentSize" width="256" height="256"/>
+        </designable>
+    </designables>
+    <resources>
+        <image name="addPhotoImage" width="256" height="256"/>
+        <namedColor name="blurBackground">
+            <color red="1" green="1" blue="1" alpha="0.22300000488758087" colorSpace="custom" customColorSpace="sRGB"/>
+        </namedColor>
+        <namedColor name="shadow">
+            <color red="0.17900000512599945" green="0.10899999737739563" blue="0.32199999690055847" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+        </namedColor>
+        <systemColor name="secondarySystemGroupedBackgroundColor">
+            <color white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+        </systemColor>
+    </resources>
+</document>
