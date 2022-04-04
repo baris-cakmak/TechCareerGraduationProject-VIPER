@@ -53,9 +53,7 @@ class HomeDetailPresenter: ViewToPresenterHomeDetailProtocol {
                                                              mealName: mealViewModel.mealName)
         interactor?.addMealsToCart()
     }
-    func getItemsAtTheCart() {
-        interactor?.getMealsAtTheCart()
-    }
+
     
 
     
@@ -71,10 +69,5 @@ extension HomeDetailPresenter: InteractorToPresenterHomeDetailProtocol {
     func didErrorOccured(error: Error) {
         router?.showAlert(message: error.localizedDescription)
     }
-    func didMealsAtTheCartFetchedSuccessfully(_ response: MealCartResponseModel) {
-        let badgeText = response.mealCart.count == 0 ? nil : "\(response.mealCart.count)"
-        view?.updateBadgeValueOfCartTabBar(badgeText)
-    }
-    
-    
+        
 }

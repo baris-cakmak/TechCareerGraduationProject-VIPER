@@ -48,17 +48,4 @@ class HomeDetailInteractor: PresenterToInteractorHomeDetailProtocol {
         })
     }
     
-    func getMealsAtTheCart() {
-        let username = UserStorageManager.shared.getUserEmailForMealAPI()
-        mealsNetworkManager?.getMealAtTheCart(username: username, completion: { [weak self] result in
-            guard let self = self else { return }
-            switch result {
-            case .success(let mealsAtTheCartResponse):
-                self.mealsAtTheCartResponseModel = mealsAtTheCartResponse
-                self.presenter?.didMealsAtTheCartFetchedSuccessfully( self.mealsAtTheCartResponseModel!)
-            case .failure(let error):
-                print("debug: error is \(error)")
-            }
-        })
-    }
 }

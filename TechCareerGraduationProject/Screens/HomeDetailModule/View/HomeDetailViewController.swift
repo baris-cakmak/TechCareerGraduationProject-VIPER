@@ -37,8 +37,6 @@ class HomeDetailViewController: UIViewController {
     
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
-        
-        presenter?.getItemsAtTheCart()
     }
     
     // MARK: - Helper
@@ -78,12 +76,6 @@ class HomeDetailViewController: UIViewController {
 // MARK: - PresenterToView
 
 extension HomeDetailViewController: PresenterToViewHomeDetailProtocol {
-    
-    func updateBadgeValueOfCartTabBar(_ value: String?) {
-        DispatchQueue.main.async {
-            self.tabBarController?.viewControllers?[Constants.cartTabBarIndex].tabBarItem.badgeValue = value
-        }
-    }
     
     func configureInitialView(viewModel: MealViewModel) {
         DispatchQueue.main.async {

@@ -43,13 +43,7 @@ class MealsNetworkAPIManager: MealsAPINetworkable {
                                           cartId: mealDeleteRequestModel.cartId),
                 completion: completion)
     }
-    
-    
 
-    
-    
-    
-   
 }
 
 extension MealsNetworkAPIManager {

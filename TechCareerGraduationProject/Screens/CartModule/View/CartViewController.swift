@@ -46,7 +46,10 @@ class CartViewController: UIViewController {
         presenter?.viewWillAppear()
 
     }
-    
+    override func viewWillDisappear(_ animated: Bool) {
+        super.viewWillDisappear(animated)
+        presenter?.viewWillDisappear()
+    }
     // MARK: - Helper
     
     // might shift to presenter
@@ -153,6 +156,11 @@ extension CartViewController: PresenterToViewCartProtocol {
 
         }
  	
+    }
+    func updateBadgeValueOfCartTabBar(_ value: String?) {
+        DispatchQueue.main.async {
+            self.tabBarController?.viewControllers?[Constants.cartTabBarIndex].tabBarItem.badgeValue = value
+        }
     }
     
     

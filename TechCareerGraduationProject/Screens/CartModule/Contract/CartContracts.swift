@@ -25,14 +25,15 @@ protocol ViewToPresenterCartProtocol {
     func handleStepperValue(_ stepperValue: Double, at indexPath: IndexPath)
     func orderMealsAtTheCart()
     func didTapDeleteAll()
-    
+    func viewWillDisappear()
 }
 
 protocol PresenterToInteractorCartProtocol {
     var presenter: InteractorToPresenterCartProtocol? { get set }
     func fetchMealsAtTheCart()
     func deleteSingleMeal(of mealDeleteRequestModel: MealDeleteRequestModel, at indexPath: IndexPath)
-    func deleteAllMeals(of mealDeleteRequestModel: MealDeleteRequestModel)
+    func deleteAllMeals(of mealDeleteRequestModel: MealDeleteRequestModel, dispatchGroup: DispatchGroup)
+    func fetchMealsAtTheCartForBadgeValue()
 }
 
 protocol PresenterToRouterCartProtocol {
@@ -47,7 +48,7 @@ protocol InteractorToPresenterCartProtocol: AnyObject {
     func didErrorOccured(error: Error)
     func didFetchMealsAtTheCartSuccessfully(_ mealCartReponse: MealCartResponseModel)
     func didDeleteSuccessfully(at indexPath: IndexPath)
-    func didAllDeleteRequestsFinished()
+    func didFetchMealsAtTheCartForBadge(_ mealCartResponse: MealCartResponseModel)
     
 }
 
@@ -58,11 +59,11 @@ protocol PresenterToViewCartProtocol: AnyObject {
     func reloadItems(at indexPath: IndexPath)
     func deleteItems(at indexPath: IndexPath)
     func updateCheckoutFooterPrice()
-
+    func updateBadgeValueOfCartTabBar(_ value: String?)
 }
 
 protocol RouterToPresenterCartProtocol: AnyObject {
     func didUserDecidedToGetTheOrder()
-    func didDeleteAllReqeusted()
+    func didDeleteAllRequested()
 }
 

@@ -19,13 +19,13 @@ class CartInteractor : PresenterToInteractorCartProtocol {
     
     var mealsAtTheCartResponseModel: MealCartResponseModel?
 
+    let username = UserStorageManager.shared.getUserEmailForMealAPI()
 
     var presenter: InteractorToPresenterCartProtocol?
     
     
     // MARK: - Methods
     func fetchMealsAtTheCart() {
-        let username = UserStorageManager.shared.getUserEmailForMealAPI()
         mealsNetworkManager?.getMealAtTheCart(username: username, completion: { [weak self] result in
             guard let self = self else { return }
             switch result {
@@ -51,26 +51,41 @@ class CartInteractor : PresenterToInteractorCartProtocol {
         })
     }
     
-    func deleteAllMeals(of mealDeleteRequestModel: MealDeleteRequestModel) {
-        
-        let dispatchGroup = DispatchGroup()
-        dispatchGroup.enter()
+
+    func deleteAllMeals(of mealDeleteRequestModel: MealDeleteRequestModel, dispatchGroup: DispatchGroup) {
+//        let dispatchGroup = DispatchGroup()
+//        dispatchGroup.enter()
+
         mealsNetworkManager?.deleteMealFromTheCart(mealDeleteRequestModel: mealDeleteRequestModel, completion: { [weak self] result in
+
             guard let self = self else { return }
             switch result {
             case .success(_):
-                dispatchGroup.leave()
-            
+                print("done")
             case .failure(let error):
                 self.presenter?.didErrorOccured(error: error)
             }
+            dispatchGroup.leave()
+
         })
-        dispatchGroup.notify(queue: .main) {
-            self.presenter?.didAllDeleteRequestsFinished()
-        }
+//        dispatchGroup.notify(queue: .main) {
+//            self.presenter?.didAllDeleteRequestsFinished()
+//        }
+
     }
-    
-    
+
+    func fetchMealsAtTheCartForBadgeValue() {
+        mealsNetworkManager?.getMealAtTheCart(username: username, completion: { [weak self] result in
+            guard let self = self else { return }
+            switch result {
+                
+            case .success(let mealsAtTheCartResponse):
+                self.presenter?.didFetchMealsAtTheCartForBadge(mealsAtTheCartResponse)
+            case .failure(let error):
+                print("debug: error in cart interactor due to", error)
+            }
+        })
+    }
     
     
 }

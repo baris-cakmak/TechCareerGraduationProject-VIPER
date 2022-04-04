@@ -9,6 +9,7 @@ import Foundation
 import FirebaseFirestore
 
 let sceneDelegate = (UIApplication.shared.connectedScenes.first?.delegate as! SceneDelegate)
+let scale = UIScreen.main.scale
 
 
 class Constants {

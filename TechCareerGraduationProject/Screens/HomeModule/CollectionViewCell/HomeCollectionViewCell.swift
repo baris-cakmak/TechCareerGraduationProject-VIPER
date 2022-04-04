@@ -28,8 +28,9 @@ class HomeCollectionViewCell: UICollectionViewCell {
     // MARK: - Helper
     
     func configureModel(with viewModel: MealViewModel) {
+        let thumbnailSize = CGSize(width: scale * 70, height: scale * 70)
         mealImageView.sd_imageIndicator = SDWebImageActivityIndicator.large
-        mealImageView.sd_setImage(with: viewModel.mealImageUrl, placeholderImage: UIImage(named: "placeholderImage")!)
+        mealImageView.sd_setImage(with: viewModel.mealImageUrl, placeholderImage: UIImage(named: "placeholderImage")!, options: [.scaleDownLargeImages], context: [.imageThumbnailPixelSize : thumbnailSize])
         mealNameLabel.text = viewModel.mealName
         mealPriceLabel.text = "₺ \(viewModel.mealPrice)"
     }

@@ -90,7 +90,7 @@
                                                                 <action selector="didTapDeleteButtton:" destination="gTV-IL-0wX" eventType="touchUpInside" id="QHf-as-jWU"/>
                                                             </connections>
                                                         </button>
-                                                        <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" horizontalCompressionResistancePriority="751" verticalCompressionResistancePriority="751" image="kahve" translatesAutoresizingMaskIntoConstraints="NO" id="rA7-ai-Vxg">
+                                                        <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" horizontalCompressionResistancePriority="751" verticalCompressionResistancePriority="751" translatesAutoresizingMaskIntoConstraints="NO" id="rA7-ai-Vxg">
                                                             <rect key="frame" x="0.0" y="38.5" width="115.5" height="115.5"/>
                                                             <constraints>
                                                                 <constraint firstAttribute="width" secondItem="rA7-ai-Vxg" secondAttribute="height" id="KPy-Cy-k3v"/>
@@ -140,7 +140,6 @@
         </collectionViewCell>
     </objects>
     <resources>
-        <image name="kahve" width="128" height="128"/>
         <image name="trash.fill" catalog="system" width="121" height="128"/>
         <namedColor name="blurBackground">
             <color red="1" green="1" blue="1" alpha="0.22300000488758087" colorSpace="custom" customColorSpace="sRGB"/>

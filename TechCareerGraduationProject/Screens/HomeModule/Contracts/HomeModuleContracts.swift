@@ -40,7 +40,7 @@ protocol PresenterToViewHomeProtocol: AnyObject {
 }
 protocol PresenterToRouterHomeProtocol {
     var navigationController: UINavigationController? { get set }
-    static func createModule() -> UINavigationController
+    static func createModule(using navigationController: UINavigationController) -> UIViewController
     func showHomeDetail(with meal: MealViewModel)
     func showErrorPopUp(message: String)
 }

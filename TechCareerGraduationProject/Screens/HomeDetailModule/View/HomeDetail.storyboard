@@ -29,7 +29,7 @@
                                             <rect key="frame" x="0.0" y="0.0" width="250" height="378"/>
                                             <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                                             <subviews>
-                                                <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="kahve" translatesAutoresizingMaskIntoConstraints="NO" id="g3L-mn-1YQ" customClass="CustomUIImageView" customModule="TechCareerGraduationProject" customModuleProvider="target">
+                                                <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="g3L-mn-1YQ" customClass="CustomUIImageView" customModule="TechCareerGraduationProject" customModuleProvider="target">
                                                     <rect key="frame" x="30.5" y="0.0" width="189" height="189"/>
                                                     <constraints>
                                                         <constraint firstAttribute="width" secondItem="g3L-mn-1YQ" secondAttribute="height" id="gwa-it-JJo"/>
@@ -307,14 +307,8 @@
             <point key="canvasLocation" x="76" y="62.518740629685162"/>
         </scene>
     </scenes>
-    <designables>
-        <designable name="g3L-mn-1YQ">
-            <size key="intrinsicContentSize" width="128" height="128"/>
-        </designable>
-    </designables>
     <resources>
         <image name="Background01" width="330" height="464.5"/>
-        <image name="kahve" width="128" height="128"/>
         <image name="seperation" width="54" height="39"/>
         <namedColor name="blurBackground">
             <color red="1" green="1" blue="1" alpha="0.22300000488758087" colorSpace="custom" customColorSpace="sRGB"/>

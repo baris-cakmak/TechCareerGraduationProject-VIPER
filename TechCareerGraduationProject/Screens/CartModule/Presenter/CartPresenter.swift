@@ -29,13 +29,13 @@ class CartPresenter: ViewToPresenterCartProtocol {
         getMealsAtTheCart()
         
     }
-    func popBackIfNumberOfItemsEqualToZero() {
-        self.cartViewModels == nil ? self.router?.showFirstTabToAddMeal() : ()
+    func viewWillDisappear() {
+        interactor?.fetchMealsAtTheCartForBadgeValue()
     }
     
-    func handleTotalPriceOutput(_ totalPrice: Int) {
-        // leave it void to replace with any other logic if I want
-        totalPrice == 0 ? router?.showFirstTabToAddMeal() : ()
+    func popBackIfNumberOfItemsEqualToZero() {
+        print("debug: cartviewmodels", cartViewModels)
+        self.cartViewModels == nil || self.cartViewModels!.isEmpty ? self.router?.showFirstTabToAddMeal() : ()
     }
     
     func calculateTotalPrice() -> String{
@@ -43,9 +43,7 @@ class CartPresenter: ViewToPresenterCartProtocol {
         if let cartViewModels = cartViewModels {
             cartViewModels.forEach({ viewModel in
                 totalPrice += Int(viewModel.totalPrice)!
-                
             })
-            handleTotalPriceOutput(totalPrice)
         }
         return "₺ \(totalPrice)"
         
@@ -105,11 +103,22 @@ class CartPresenter: ViewToPresenterCartProtocol {
     }
     
     func deleteAllItemsAtTheCart() {
-        // Reminder..Since multiple requests will occur in network, use dispatch groups(or any other relaated solution) in interactor...
+        // Reminder..Since multiple requests will occur in network, use dispatch groups(or any other relaated solution).
         view?.showLoadingAnimation(with: .cartLoading)
+        let dispatchGroup = DispatchGroup()
         cartViewModels?.forEach({ cartViewModel in
-            interactor?.deleteAllMeals(of: MealDeleteRequestModel(username: username, cartId: cartViewModel.cartId))
+            dispatchGroup.enter()
+
+            interactor?.deleteAllMeals(of: MealDeleteRequestModel(username: username, cartId: cartViewModel.cartId), dispatchGroup: dispatchGroup)
+            
+//            dispatchGroup.leave()
         })
+        dispatchGroup.notify(queue: .main) {
+            self.cartViewModels = []
+            self.view?.removeLoadingAnimation()
+            self.popBackIfNumberOfItemsEqualToZero()
+
+        }
         
     }
     
@@ -124,7 +133,6 @@ class CartPresenter: ViewToPresenterCartProtocol {
 extension CartPresenter: InteractorToPresenterCartProtocol {
     
     func didErrorOccured(error: Error) {
-        // since api is not set properly, I do not show error popup to the user
         print("debug: cartNetworkError \(error)")
         view?.removeLoadingAnimation()
         popBackIfNumberOfItemsEqualToZero()
@@ -154,13 +162,15 @@ extension CartPresenter: InteractorToPresenterCartProtocol {
         view?.deleteItems(at: indexPath)
         cartViewModels?.remove(at: indexPath.item)
         view?.updateCheckoutFooterPrice()
+        self.popBackIfNumberOfItemsEqualToZero()
         
     }
     
-    func didAllDeleteRequestsFinished() {
-        self.cartViewModels = nil
-        self.view?.removeLoadingAnimation()
-        self.popBackIfNumberOfItemsEqualToZero()
+
+    
+    func didFetchMealsAtTheCartForBadge(_ mealCartResponse: MealCartResponseModel) {
+        let badgeText = mealCartResponse.mealCart.count == 0 ? nil : "\(mealCartResponse.mealCart.count)"
+        view?.updateBadgeValueOfCartTabBar(badgeText)
     }
     
 }
@@ -169,7 +179,8 @@ extension CartPresenter: InteractorToPresenterCartProtocol {
 // MARK: - Router To Presenter
 
 extension CartPresenter: RouterToPresenterCartProtocol {
-    func didDeleteAllReqeusted() {
+
+    func didDeleteAllRequested() {
         deleteAllItemsAtTheCart()
     }
     

@@ -58,7 +58,7 @@ class CartRouter: PresenterToRouterCartProtocol {
     func showDeleteDecisionPopUp() {
         let ac = UIAlertController(title: "Delete All Items In Cart?", message: "Say yes to keep continue, Cancel to update the cart", preferredStyle: .alert)
         ac.addAction(UIAlertAction(title: "Yes", style: .default, handler: {[weak self] _ in
-            self?.presenter?.didDeleteAllReqeusted()
+            self?.presenter?.didDeleteAllRequested()
         }))
         ac.addAction(UIAlertAction(title: "Cancel", style: .default, handler: nil))
         DispatchQueue.main.async {

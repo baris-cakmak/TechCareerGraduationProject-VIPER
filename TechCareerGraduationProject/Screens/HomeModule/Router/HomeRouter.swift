@@ -16,18 +16,18 @@ class HomeRouter: PresenterToRouterHomeProtocol {
         self.navigationController = navigationController
     }
 
-    static func createModule() -> UINavigationController {
+    static func createModule(using navigationController: UINavigationController) -> UIViewController {
         let mealNetworkManager = MealsNetworkAPIManager()
         let view = HomeViewController.instantiate(with: .home)
         let presenter = HomePresenter()
         let interactor = HomeInteractor(mealsNetworkManager: mealNetworkManager)
-        let router = HomeRouter(navigationController: UINavigationController(rootViewController: view))
+        let router = HomeRouter(navigationController: navigationController)
         view.presenter = presenter
         view.presenter?.interactor = interactor
         view.presenter?.router = router
         view.presenter?.interactor?.presenter = presenter
         view.presenter?.view = view
-        return router.navigationController!
+        return view
     }
     
     func showHomeDetail(with meal: MealViewModel) {

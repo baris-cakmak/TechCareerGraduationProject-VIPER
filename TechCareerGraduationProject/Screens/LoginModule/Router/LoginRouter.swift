@@ -51,9 +51,9 @@ class LoginRouter: PresenterToRouterLoginProtocol {
         }
     }
     func changeWindowAsMainTab() {
-        let mainTabBarController = MainTabBarController()
+        let mainTabBarModule = MainTabBarRouter.createModule()
         DispatchQueue.main.async {
-            sceneDelegate.changeRootViewController(mainTabBarController)
+            sceneDelegate.changeRootViewController(mainTabBarModule)
         }
     }
     

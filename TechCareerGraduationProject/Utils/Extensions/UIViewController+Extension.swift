@@ -16,6 +16,7 @@ enum StoryboardName: String {
     case register = "Register"
     case profile = "Profile"
     case onboarding = "Onboard"
+    case restaurant = "Restaurant"
 
 }
 

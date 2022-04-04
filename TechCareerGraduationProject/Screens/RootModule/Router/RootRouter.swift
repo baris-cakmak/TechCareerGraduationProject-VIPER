@@ -31,8 +31,8 @@ class RootRouter: PresenterToRouterRootProtocol {
     }
     
     func changeWindowAsTabBarModule() {
-        let tabBarController = MainTabBarController()
-        sceneDelegate.changeRootViewController(tabBarController)
+        let tabBarModule = MainTabBarRouter.createModule()
+        sceneDelegate.changeRootViewController(tabBarModule)
     }
     
     func changeWindowAsOnboarding() {

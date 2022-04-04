@@ -5,7 +5,6 @@
 //  Created by Peace on 23.03.2022.
 //
 
-import Foundation
 import UIKit
 
 protocol ViewToPresenterHomeDetailProtocol {
@@ -17,7 +16,6 @@ protocol ViewToPresenterHomeDetailProtocol {
     func viewDidLoad()
     func calculatePrice(by stepperValue: Double)
     func addMealsToCartInApi(orderCount: Double)
-    func getItemsAtTheCart()
 }
 
 protocol PresenterToInteractorHomeDetailProtocol {
@@ -27,7 +25,6 @@ protocol PresenterToInteractorHomeDetailProtocol {
     var presenter: InteractorToPresenterHomeDetailProtocol? { get set }
     
     func addMealsToCart()
-    func getMealsAtTheCart()
 }
 
 protocol PresenterToRouterHomeDetailProtocol {
@@ -40,11 +37,10 @@ protocol PresenterToRouterHomeDetailProtocol {
 protocol PresenterToViewHomeDetailProtocol: AnyObject {
     func configureInitialView(viewModel: MealViewModel)
     func didPriceChanged(price: String)
-    func updateBadgeValueOfCartTabBar(_ value: String?)
 }
 protocol InteractorToPresenterHomeDetailProtocol: AnyObject {
     func didMealAddedToCart()
     func didErrorOccured(error: Error)
-    func didMealsAtTheCartFetchedSuccessfully(_ response: MealCartResponseModel)
+
 }
 

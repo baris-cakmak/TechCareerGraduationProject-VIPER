@@ -6,10 +6,19 @@
 //
 
 import UIKit
-import FirebaseAuth
+
 class MainTabBarController: UITabBarController {
     
+    // MARK: - Presenter
+    var presenter: ViewToPresenterMainTabBarProtocol?
+    
     // MARK: - Lifecycle
+    
+    override func viewWillAppear(_ animated: Bool) {
+        super.viewWillAppear(animated)
+        presenter?.viewWillAppear()
+
+    }
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -43,11 +52,9 @@ class MainTabBarController: UITabBarController {
 
     }
     
-
-    
     func configureViewControllers() {
-        let homeNav = HomeRouter.createModule()
-        let first = templateNavigationController(title: "Meals" ,unselectedImage: UIImage(named: "restaurantTabImage")!, selectedImage: UIImage(named: "restaurantTabImageSelected")!, navigationController: homeNav)
+        let restaurantNav = RestaurantRouter.createModule()
+        let first = templateNavigationController(title: "Restaurants" ,unselectedImage: UIImage(named: "restaurantTabImage")!, selectedImage: UIImage(named: "restaurantTabImageSelected")!, navigationController: restaurantNav)
         let cartNav = CartRouter.createModule()
         let second = templateNavigationController(title: "Cart", unselectedImage: UIImage(named: "shoppingCart")!, selectedImage: UIImage(named: "shoppingCartSelected")!, navigationController: cartNav)
         let profileNav = ProfileRouter.createModule()
@@ -86,4 +93,16 @@ class MainTabBarController: UITabBarController {
     }
     
     
+}
+
+// MARK: - Presenter To View
+
+extension MainTabBarController: PresenterToViewMainTabBarProtocol {
+    
+    func updateBadgeValueOfCartTabBar(_ value: String?) {
+        DispatchQueue.main.async {
+            self.viewControllers?[Constants.cartTabBarIndex].tabBarItem.badgeValue = value
+        }
+
+    }
 }
