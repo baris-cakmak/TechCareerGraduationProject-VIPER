@@ -20,10 +20,10 @@ Techcareer is a brand under the one of the biggest hiring company that is called
 
 ## Screenshots
 <p float="left">
-  <img src="https://user-images.githubusercontent.com/96867747/161714293-711b8229-18f7-44f3-a4e0-ec074560a4db.png" width="240" />
-  <img src="https://user-images.githubusercontent.com/96867747/161714289-5b37ddbe-a655-4495-86b9-4a11cecbd956.png" width="240" />
-  <img src="https://user-images.githubusercontent.com/96867747/161725478-8ee26b41-ccb0-4e35-b1fc-1e903d60d176.png" width="240" /> 
-  <img src="https://user-images.githubusercontent.com/96867747/161724952-f9f1fcb4-56de-4445-aab5-c5d4d2235aa1.png" width="240" /> 
+  <img src="https://user-images.githubusercontent.com/96867747/161714293-711b8229-18f7-44f3-a4e0-ec074560a4db.png" width="200" />
+  <img src="https://user-images.githubusercontent.com/96867747/161714289-5b37ddbe-a655-4495-86b9-4a11cecbd956.png" width="200" />
+  <img src="https://user-images.githubusercontent.com/96867747/161725478-8ee26b41-ccb0-4e35-b1fc-1e903d60d176.png" width="200" /> 
+  <img src="https://user-images.githubusercontent.com/96867747/161724952-f9f1fcb4-56de-4445-aab5-c5d4d2235aa1.png" width="200" /> 
 </p>
 
 
