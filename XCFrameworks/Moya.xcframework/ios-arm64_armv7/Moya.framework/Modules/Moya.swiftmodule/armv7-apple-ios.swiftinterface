@@ -1,0 +1,400 @@
+// swift-interface-format-version: 1.0
+// swift-compiler-version: Apple Swift version 5.6.1 (swiftlang-5.6.0.323.66 clang-1316.0.20.12)
+// swift-module-flags: -target armv7-apple-ios10.0 -enable-objc-interop -enable-library-evolution -swift-version 5 -enforce-exclusivity=checked -O -module-name Moya
+import Alamofire
+import Foundation
+@_exported import Moya
+import Swift
+import UIKit.UIImage
+import UIKit
+import _Concurrency
+public enum ValidationType {
+  case none
+  case successCodes
+  case successAndRedirectCodes
+  case customCodes([Swift.Int])
+}
+extension Moya.ValidationType : Swift.Equatable {
+  public static func == (lhs: Moya.ValidationType, rhs: Moya.ValidationType) -> Swift.Bool
+}
+public protocol Cancellable {
+  var isCancelled: Swift.Bool { get }
+  func cancel()
+}
+public enum EndpointSampleResponse {
+  case networkResponse(Swift.Int, Foundation.Data)
+  case response(Foundation.HTTPURLResponse, Foundation.Data)
+  case networkError(Foundation.NSError)
+}
+open class Endpoint {
+  public typealias SampleResponseClosure = () -> Moya.EndpointSampleResponse
+  final public let url: Swift.String
+  final public let sampleResponseClosure: Moya.Endpoint.SampleResponseClosure
+  final public let method: Moya.Method
+  final public let task: Moya.Task
+  final public let httpHeaderFields: [Swift.String : Swift.String]?
+  public init(url: Swift.String, sampleResponseClosure: @escaping Moya.Endpoint.SampleResponseClosure, method: Moya.Method, task: Moya.Task, httpHeaderFields: [Swift.String : Swift.String]?)
+  open func adding(newHTTPHeaderFields: [Swift.String : Swift.String]) -> Moya.Endpoint
+  open func replacing(task: Moya.Task) -> Moya.Endpoint
+  @objc deinit
+}
+extension Moya.Endpoint {
+  public func urlRequest() throws -> Foundation.URLRequest
+}
+extension Moya.Endpoint : Swift.Equatable, Swift.Hashable {
+  public func hash(into hasher: inout Swift.Hasher)
+  public static func == (lhs: Moya.Endpoint, rhs: Moya.Endpoint) -> Swift.Bool
+  open var hashValue: Swift.Int {
+    get
+  }
+}
+public typealias ImageType = UIKit.UIImage
+public typealias Image = Moya.ImageType
+public typealias Session = Alamofire.Session
+public typealias Method = Alamofire.HTTPMethod
+public typealias ParameterEncoding = Alamofire.ParameterEncoding
+public typealias JSONEncoding = Alamofire.JSONEncoding
+public typealias URLEncoding = Alamofire.URLEncoding
+public typealias RequestMultipartFormData = Alamofire.MultipartFormData
+public typealias DownloadDestination = Alamofire.DownloadRequest.Destination
+extension Alamofire.Request : Moya.RequestType {
+  public var sessionHeaders: [Swift.String : Swift.String] {
+    get
+  }
+}
+public typealias RequestInterceptor = Alamofire.RequestInterceptor
+@_hasMissingDesignatedInitializers final public class CancellableToken : Moya.Cancellable, Swift.CustomDebugStringConvertible {
+  final public var isCancelled: Swift.Bool {
+    get
+  }
+  final public func cancel()
+  public init(action: @escaping () -> Swift.Void)
+  final public var debugDescription: Swift.String {
+    get
+  }
+  @objc deinit
+}
+public enum MoyaError : Swift.Error {
+  case imageMapping(Moya.Response)
+  case jsonMapping(Moya.Response)
+  case stringMapping(Moya.Response)
+  case objectMapping(Swift.Error, Moya.Response)
+  case encodableMapping(Swift.Error)
+  case statusCode(Moya.Response)
+  case underlying(Swift.Error, Moya.Response?)
+  case requestMapping(Swift.String)
+  case parameterEncoding(Swift.Error)
+}
+extension Moya.MoyaError {
+  public var response: Moya.Response? {
+    get
+  }
+}
+extension Moya.MoyaError : Foundation.LocalizedError {
+  public var errorDescription: Swift.String? {
+    get
+  }
+}
+extension Moya.MoyaError : Foundation.CustomNSError {
+  public var errorUserInfo: [Swift.String : Any] {
+    get
+  }
+}
+extension Moya.MoyaProvider {
+  final public class func defaultEndpointMapping(for target: Target) -> Moya.Endpoint
+  final public class func defaultRequestMapping(for endpoint: Moya.Endpoint, closure: (Swift.Result<Foundation.URLRequest, Moya.MoyaError>) -> Swift.Void)
+  final public class func defaultAlamofireSession() -> Moya.Session
+}
+extension Alamofire.HTTPMethod {
+  public var supportsMultipart: Swift.Bool {
+    get
+  }
+}
+extension Moya.MoyaProvider {
+  public func requestNormal(_ target: Target, callbackQueue: Dispatch.DispatchQueue?, progress: Moya.ProgressBlock?, completion: @escaping Moya.Completion) -> Moya.Cancellable
+  public func cancelCompletion(_ completion: (_ result: Swift.Result<Moya.Response, Moya.MoyaError>) -> Swift.Void, target: Target)
+  final public func createStubFunction(_ token: Moya.CancellableToken, forTarget target: Target, withCompletion completion: @escaping Moya.Completion, endpoint: Moya.Endpoint, plugins: [Moya.PluginType], request: Foundation.URLRequest) -> (() -> Swift.Void)
+  final public func notifyPluginsOfImpendingStub(for request: Foundation.URLRequest, target: Target) -> Foundation.URLRequest
+}
+public enum Task {
+  case requestPlain
+  case requestData(Foundation.Data)
+  case requestJSONEncodable(Swift.Encodable)
+  case requestCustomJSONEncodable(Swift.Encodable, encoder: Foundation.JSONEncoder)
+  case requestParameters(parameters: [Swift.String : Any], encoding: Moya.ParameterEncoding)
+  case requestCompositeData(bodyData: Foundation.Data, urlParameters: [Swift.String : Any])
+  case requestCompositeParameters(bodyParameters: [Swift.String : Any], bodyEncoding: Moya.ParameterEncoding, urlParameters: [Swift.String : Any])
+  case uploadFile(Foundation.URL)
+  case uploadMultipart([Moya.MultipartFormData])
+  case uploadCompositeMultipart([Moya.MultipartFormData], urlParameters: [Swift.String : Any])
+  case downloadDestination(Moya.DownloadDestination)
+  case downloadParameters(parameters: [Swift.String : Any], encoding: Moya.ParameterEncoding, destination: Moya.DownloadDestination)
+}
+public typealias Completion = (_ result: Swift.Result<Moya.Response, Moya.MoyaError>) -> Swift.Void
+public typealias ProgressBlock = (_ progress: Moya.ProgressResponse) -> Swift.Void
+public struct ProgressResponse {
+  public let response: Moya.Response?
+  public let progressObject: Foundation.Progress?
+  public init(progress: Foundation.Progress? = nil, response: Moya.Response? = nil)
+  public var progress: Swift.Double {
+    get
+  }
+  public var completed: Swift.Bool {
+    get
+  }
+}
+public protocol MoyaProviderType : AnyObject {
+  associatedtype Target : Moya.TargetType
+  func request(_ target: Self.Target, callbackQueue: Dispatch.DispatchQueue?, progress: Moya.ProgressBlock?, completion: @escaping Moya.Completion) -> Moya.Cancellable
+}
+open class MoyaProvider<Target> : Moya.MoyaProviderType where Target : Moya.TargetType {
+  public typealias EndpointClosure = (Target) -> Moya.Endpoint
+  public typealias RequestResultClosure = (Swift.Result<Foundation.URLRequest, Moya.MoyaError>) -> Swift.Void
+  public typealias RequestClosure = (Moya.Endpoint, @escaping Moya.MoyaProvider<Target>.RequestResultClosure) -> Swift.Void
+  public typealias StubClosure = (Target) -> Moya.StubBehavior
+  final public let endpointClosure: Moya.MoyaProvider<Target>.EndpointClosure
+  final public let requestClosure: Moya.MoyaProvider<Target>.RequestClosure
+  final public let stubClosure: Moya.MoyaProvider<Target>.StubClosure
+  final public let session: Moya.Session
+  final public let plugins: [Moya.PluginType]
+  final public let trackInflights: Swift.Bool
+  open var inflightRequests: [Moya.Endpoint : [Moya.Completion]] {
+    get
+  }
+  public init(endpointClosure: @escaping Moya.MoyaProvider<Target>.EndpointClosure = MoyaProvider.defaultEndpointMapping, requestClosure: @escaping Moya.MoyaProvider<Target>.RequestClosure = MoyaProvider.defaultRequestMapping, stubClosure: @escaping Moya.MoyaProvider<Target>.StubClosure = MoyaProvider.neverStub, callbackQueue: Dispatch.DispatchQueue? = nil, session: Moya.Session = MoyaProvider<Target>.defaultAlamofireSession(), plugins: [Moya.PluginType] = [], trackInflights: Swift.Bool = false)
+  open func endpoint(_ token: Target) -> Moya.Endpoint
+  @discardableResult
+  open func request(_ target: Target, callbackQueue: Dispatch.DispatchQueue? = .none, progress: Moya.ProgressBlock? = .none, completion: @escaping Moya.Completion) -> Moya.Cancellable
+  @discardableResult
+  open func stubRequest(_ target: Target, request: Foundation.URLRequest, callbackQueue: Dispatch.DispatchQueue?, completion: @escaping Moya.Completion, endpoint: Moya.Endpoint, stubBehavior: Moya.StubBehavior) -> Moya.CancellableToken
+  @objc deinit
+}
+public enum StubBehavior {
+  case never
+  case immediate
+  case delayed(seconds: Foundation.TimeInterval)
+}
+extension Moya.MoyaProvider {
+  final public class func neverStub(_: Target) -> Moya.StubBehavior
+  final public class func immediatelyStub(_: Target) -> Moya.StubBehavior
+  final public class func delayedStub(_ seconds: Foundation.TimeInterval) -> (Target) -> Moya.StubBehavior
+}
+public func convertResponseToResult(_ response: Foundation.HTTPURLResponse?, request: Foundation.URLRequest?, data: Foundation.Data?, error: Swift.Error?) -> Swift.Result<Moya.Response, Moya.MoyaError>
+public struct MultipartFormData : Swift.Hashable {
+  public enum FormDataProvider : Swift.Hashable {
+    case data(Foundation.Data)
+    case file(Foundation.URL)
+    case stream(Foundation.InputStream, Swift.UInt64)
+    public func hash(into hasher: inout Swift.Hasher)
+    public static func == (a: Moya.MultipartFormData.FormDataProvider, b: Moya.MultipartFormData.FormDataProvider) -> Swift.Bool
+    public var hashValue: Swift.Int {
+      get
+    }
+  }
+  public init(provider: Moya.MultipartFormData.FormDataProvider, name: Swift.String, fileName: Swift.String? = nil, mimeType: Swift.String? = nil)
+  public let provider: Moya.MultipartFormData.FormDataProvider
+  public let name: Swift.String
+  public let fileName: Swift.String?
+  public let mimeType: Swift.String?
+  public func hash(into hasher: inout Swift.Hasher)
+  public static func == (a: Moya.MultipartFormData, b: Moya.MultipartFormData) -> Swift.Bool
+  public var hashValue: Swift.Int {
+    get
+  }
+}
+public enum MultiTarget : Moya.TargetType {
+  case target(Moya.TargetType)
+  public init(_ target: Moya.TargetType)
+  public var path: Swift.String {
+    get
+  }
+  public var baseURL: Foundation.URL {
+    get
+  }
+  public var method: Moya.Method {
+    get
+  }
+  public var sampleData: Foundation.Data {
+    get
+  }
+  public var task: Moya.Task {
+    get
+  }
+  public var validationType: Moya.ValidationType {
+    get
+  }
+  public var headers: [Swift.String : Swift.String]? {
+    get
+  }
+  public var target: Moya.TargetType {
+    get
+  }
+}
+extension Moya.MultiTarget : Moya.AccessTokenAuthorizable {
+  public var authorizationType: Moya.AuthorizationType? {
+    get
+  }
+}
+public protocol PluginType {
+  func prepare(_ request: Foundation.URLRequest, target: Moya.TargetType) -> Foundation.URLRequest
+  func willSend(_ request: Moya.RequestType, target: Moya.TargetType)
+  func didReceive(_ result: Swift.Result<Moya.Response, Moya.MoyaError>, target: Moya.TargetType)
+  func process(_ result: Swift.Result<Moya.Response, Moya.MoyaError>, target: Moya.TargetType) -> Swift.Result<Moya.Response, Moya.MoyaError>
+}
+extension Moya.PluginType {
+  public func prepare(_ request: Foundation.URLRequest, target: Moya.TargetType) -> Foundation.URLRequest
+  public func willSend(_ request: Moya.RequestType, target: Moya.TargetType)
+  public func didReceive(_ result: Swift.Result<Moya.Response, Moya.MoyaError>, target: Moya.TargetType)
+  public func process(_ result: Swift.Result<Moya.Response, Moya.MoyaError>, target: Moya.TargetType) -> Swift.Result<Moya.Response, Moya.MoyaError>
+}
+public protocol RequestType {
+  var request: Foundation.URLRequest? { get }
+  var sessionHeaders: [Swift.String : Swift.String] { get }
+  func authenticate(username: Swift.String, password: Swift.String, persistence: Foundation.URLCredential.Persistence) -> Self
+  func authenticate(with credential: Foundation.URLCredential) -> Self
+  func cURLDescription(calling handler: @escaping (Swift.String) -> Swift.Void) -> Self
+}
+public protocol AccessTokenAuthorizable {
+  var authorizationType: Moya.AuthorizationType? { get }
+}
+public enum AuthorizationType {
+  case basic
+  case bearer
+  case custom(Swift.String)
+  public var value: Swift.String {
+    get
+  }
+}
+extension Moya.AuthorizationType : Swift.Equatable {
+  public static func == (lhs: Moya.AuthorizationType, rhs: Moya.AuthorizationType) -> Swift.Bool
+}
+public struct AccessTokenPlugin : Moya.PluginType {
+  public typealias TokenClosure = (Moya.TargetType) -> Swift.String
+  public let tokenClosure: Moya.AccessTokenPlugin.TokenClosure
+  public init(tokenClosure: @escaping Moya.AccessTokenPlugin.TokenClosure)
+  public func prepare(_ request: Foundation.URLRequest, target: Moya.TargetType) -> Foundation.URLRequest
+}
+final public class CredentialsPlugin : Moya.PluginType {
+  public typealias CredentialClosure = (Moya.TargetType) -> Foundation.URLCredential?
+  public init(credentialsClosure: @escaping Moya.CredentialsPlugin.CredentialClosure)
+  final public func willSend(_ request: Moya.RequestType, target: Moya.TargetType)
+  @objc deinit
+}
+extension Foundation.URL {
+  public init<T>(target: T) where T : Moya.TargetType
+}
+public enum NetworkActivityChangeType {
+  case began, ended
+  public static func == (a: Moya.NetworkActivityChangeType, b: Moya.NetworkActivityChangeType) -> Swift.Bool
+  public func hash(into hasher: inout Swift.Hasher)
+  public var hashValue: Swift.Int {
+    get
+  }
+}
+final public class NetworkActivityPlugin : Moya.PluginType {
+  public typealias NetworkActivityClosure = (_ change: Moya.NetworkActivityChangeType, _ target: Moya.TargetType) -> Swift.Void
+  public init(networkActivityClosure: @escaping Moya.NetworkActivityPlugin.NetworkActivityClosure)
+  final public func willSend(_ request: Moya.RequestType, target: Moya.TargetType)
+  final public func didReceive(_ result: Swift.Result<Moya.Response, Moya.MoyaError>, target: Moya.TargetType)
+  @objc deinit
+}
+final public class NetworkLoggerPlugin {
+  final public var configuration: Moya.NetworkLoggerPlugin.Configuration
+  public init(configuration: Moya.NetworkLoggerPlugin.Configuration = Configuration())
+  @objc deinit
+}
+extension Moya.NetworkLoggerPlugin : Moya.PluginType {
+  final public func willSend(_ request: Moya.RequestType, target: Moya.TargetType)
+  final public func didReceive(_ result: Swift.Result<Moya.Response, Moya.MoyaError>, target: Moya.TargetType)
+}
+extension Moya.NetworkLoggerPlugin {
+  public struct Configuration {
+    public typealias OutputType = (_ target: Moya.TargetType, _ items: [Swift.String]) -> Swift.Void
+    public var formatter: Moya.NetworkLoggerPlugin.Configuration.Formatter
+    public var output: Moya.NetworkLoggerPlugin.Configuration.OutputType
+    public var logOptions: Moya.NetworkLoggerPlugin.Configuration.LogOptions
+    public init(formatter: Moya.NetworkLoggerPlugin.Configuration.Formatter = Formatter(), output: @escaping Moya.NetworkLoggerPlugin.Configuration.OutputType = defaultOutput, logOptions: Moya.NetworkLoggerPlugin.Configuration.LogOptions = .default)
+    public static func defaultOutput(target: Moya.TargetType, items: [Swift.String])
+  }
+}
+extension Moya.NetworkLoggerPlugin.Configuration {
+  public struct LogOptions : Swift.OptionSet {
+    public let rawValue: Swift.Int
+    public init(rawValue: Swift.Int)
+    public static let requestMethod: Moya.NetworkLoggerPlugin.Configuration.LogOptions
+    public static let requestBody: Moya.NetworkLoggerPlugin.Configuration.LogOptions
+    public static let requestHeaders: Moya.NetworkLoggerPlugin.Configuration.LogOptions
+    public static let formatRequestAscURL: Moya.NetworkLoggerPlugin.Configuration.LogOptions
+    public static let successResponseBody: Moya.NetworkLoggerPlugin.Configuration.LogOptions
+    public static let errorResponseBody: Moya.NetworkLoggerPlugin.Configuration.LogOptions
+    public static let `default`: Moya.NetworkLoggerPlugin.Configuration.LogOptions
+    public static let verbose: Moya.NetworkLoggerPlugin.Configuration.LogOptions
+    public typealias ArrayLiteralElement = Moya.NetworkLoggerPlugin.Configuration.LogOptions
+    public typealias Element = Moya.NetworkLoggerPlugin.Configuration.LogOptions
+    public typealias RawValue = Swift.Int
+  }
+}
+extension Moya.NetworkLoggerPlugin.Configuration {
+  public struct Formatter {
+    public typealias DataFormatterType = (Foundation.Data) -> (Swift.String)
+    public typealias EntryFormatterType = (_ identifier: Swift.String, _ message: Swift.String, _ target: Moya.TargetType) -> Swift.String
+    public var entry: Moya.NetworkLoggerPlugin.Configuration.Formatter.EntryFormatterType
+    public var requestData: Moya.NetworkLoggerPlugin.Configuration.Formatter.DataFormatterType
+    public var responseData: Moya.NetworkLoggerPlugin.Configuration.Formatter.DataFormatterType
+    public init(entry: @escaping Moya.NetworkLoggerPlugin.Configuration.Formatter.EntryFormatterType = defaultEntryFormatter, requestData: @escaping Moya.NetworkLoggerPlugin.Configuration.Formatter.DataFormatterType = defaultDataFormatter, responseData: @escaping Moya.NetworkLoggerPlugin.Configuration.Formatter.DataFormatterType = defaultDataFormatter)
+    public static func defaultDataFormatter(_ data: Foundation.Data) -> Swift.String
+    public static func defaultEntryFormatter(identifier: Swift.String, message: Swift.String, target: Moya.TargetType) -> Swift.String
+  }
+}
+extension Moya.NetworkLoggerPlugin {
+  final public class var `default`: Moya.NetworkLoggerPlugin {
+    get
+  }
+  final public class var verbose: Moya.NetworkLoggerPlugin {
+    get
+  }
+}
+final public class Response : Swift.CustomDebugStringConvertible, Swift.Equatable {
+  final public let statusCode: Swift.Int
+  final public let data: Foundation.Data
+  final public let request: Foundation.URLRequest?
+  final public let response: Foundation.HTTPURLResponse?
+  public init(statusCode: Swift.Int, data: Foundation.Data, request: Foundation.URLRequest? = nil, response: Foundation.HTTPURLResponse? = nil)
+  final public var description: Swift.String {
+    get
+  }
+  final public var debugDescription: Swift.String {
+    get
+  }
+  public static func == (lhs: Moya.Response, rhs: Moya.Response) -> Swift.Bool
+  @objc deinit
+}
+extension Moya.Response {
+  final public func filter<R>(statusCodes: R) throws -> Moya.Response where R : Swift.RangeExpression, R.Bound == Swift.Int
+  final public func filter(statusCode: Swift.Int) throws -> Moya.Response
+  final public func filterSuccessfulStatusCodes() throws -> Moya.Response
+  final public func filterSuccessfulStatusAndRedirectCodes() throws -> Moya.Response
+  final public func mapImage() throws -> Moya.Image
+  final public func mapJSON(failsOnEmptyData: Swift.Bool = true) throws -> Any
+  final public func mapString(atKeyPath keyPath: Swift.String? = nil) throws -> Swift.String
+  final public func map<D>(_ type: D.Type, atKeyPath keyPath: Swift.String? = nil, using decoder: Foundation.JSONDecoder = JSONDecoder(), failsOnEmptyData: Swift.Bool = true) throws -> D where D : Swift.Decodable
+}
+public protocol TargetType {
+  var baseURL: Foundation.URL { get }
+  var path: Swift.String { get }
+  var method: Moya.Method { get }
+  var sampleData: Foundation.Data { get }
+  var task: Moya.Task { get }
+  var validationType: Moya.ValidationType { get }
+  var headers: [Swift.String : Swift.String]? { get }
+}
+extension Moya.TargetType {
+  public var validationType: Moya.ValidationType {
+    get
+  }
+  public var sampleData: Foundation.Data {
+    get
+  }
+}
+extension Moya.NetworkActivityChangeType : Swift.Equatable {}
+extension Moya.NetworkActivityChangeType : Swift.Hashable {}

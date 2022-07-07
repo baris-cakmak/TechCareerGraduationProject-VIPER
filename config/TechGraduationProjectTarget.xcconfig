@@ -1,0 +1,3 @@
+OTHER_LDFLAGS = -ObjC
+USER_HEADER_SEARCH_PATHS = $(SRCROOT)/module.modulemap
+    

@@ -1,0 +1,68 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="20037" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES">
+    <device id="retina6_1" orientation="portrait" appearance="light"/>
+    <dependencies>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="20020"/>
+        <capability name="Safe area layout guides" minToolsVersion="9.0"/>
+        <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
+    </dependencies>
+    <objects>
+        <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner"/>
+        <placeholder placeholderIdentifier="IBFirstResponder" id="-2" customClass="UIResponder"/>
+        <collectionViewCell opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" reuseIdentifier="OffersCollectionViewCell" id="gTV-IL-0wX" customClass="OffersCollectionViewCell" customModule="RestaurantModule">
+            <rect key="frame" x="0.0" y="0.0" width="339" height="306"/>
+            <autoresizingMask key="autoresizingMask"/>
+            <view key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center">
+                <rect key="frame" x="0.0" y="0.0" width="339" height="306"/>
+                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                <subviews>
+                    <visualEffectView opaque="NO" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="3Sn-Xh-yPo">
+                        <rect key="frame" x="0.0" y="0.0" width="339" height="306"/>
+                        <view key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" insetsLayoutMarginsFromSafeArea="NO" id="hXW-9y-1cx">
+                            <rect key="frame" x="0.0" y="0.0" width="339" height="306"/>
+                            <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        </view>
+                        <blurEffect style="systemUltraThinMaterial"/>
+                    </visualEffectView>
+                    <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="rGu-Fd-dXu" customClass="CustomUIImageView" customModule="CommonKit">
+                        <rect key="frame" x="189" y="105" width="140" height="140"/>
+                        <constraints>
+                            <constraint firstAttribute="width" constant="140" id="SuR-0H-rjH"/>
+                            <constraint firstAttribute="width" secondItem="rGu-Fd-dXu" secondAttribute="height" id="q1x-z1-8UR"/>
+                        </constraints>
+                        <userDefinedRuntimeAttributes>
+                            <userDefinedRuntimeAttribute type="number" keyPath="cornerRadius">
+                                <real key="value" value="15"/>
+                            </userDefinedRuntimeAttribute>
+                        </userDefinedRuntimeAttributes>
+                    </imageView>
+                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Kebay Day 20₺ Discount" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="nbx-5h-wDa">
+                        <rect key="frame" x="10" y="0.0" width="234" height="306"/>
+                        <fontDescription key="fontDescription" type="system" weight="semibold" pointSize="30"/>
+                        <nil key="textColor"/>
+                        <nil key="highlightedColor"/>
+                    </label>
+                </subviews>
+            </view>
+            <viewLayoutGuide key="safeArea" id="ZTg-uK-7eu"/>
+            <constraints>
+                <constraint firstItem="rGu-Fd-dXu" firstAttribute="leading" secondItem="nbx-5h-wDa" secondAttribute="trailing" constant="-55" id="0Qf-Fa-yVW"/>
+                <constraint firstItem="nbx-5h-wDa" firstAttribute="leading" secondItem="gTV-IL-0wX" secondAttribute="leading" constant="10" id="EgT-rZ-6Ou"/>
+                <constraint firstItem="3Sn-Xh-yPo" firstAttribute="leading" secondItem="gTV-IL-0wX" secondAttribute="leading" id="OJQ-1e-vfy"/>
+                <constraint firstAttribute="bottom" secondItem="3Sn-Xh-yPo" secondAttribute="bottom" id="Zjg-nT-xgQ"/>
+                <constraint firstItem="rGu-Fd-dXu" firstAttribute="centerY" secondItem="ZTg-uK-7eu" secondAttribute="centerY" id="bWz-Ov-9d1"/>
+                <constraint firstAttribute="trailing" secondItem="3Sn-Xh-yPo" secondAttribute="trailing" id="iIP-rh-ZA2"/>
+                <constraint firstItem="nbx-5h-wDa" firstAttribute="top" secondItem="gTV-IL-0wX" secondAttribute="top" id="j3q-Ej-joo"/>
+                <constraint firstItem="3Sn-Xh-yPo" firstAttribute="top" secondItem="gTV-IL-0wX" secondAttribute="top" id="mPF-cd-Gwa"/>
+                <constraint firstAttribute="trailing" secondItem="rGu-Fd-dXu" secondAttribute="trailing" constant="10" id="vyk-Bb-kOj"/>
+                <constraint firstAttribute="bottom" secondItem="nbx-5h-wDa" secondAttribute="bottom" id="wqe-nF-Mfm"/>
+            </constraints>
+            <size key="customSize" width="339" height="306"/>
+            <connections>
+                <outlet property="offerImageView" destination="rGu-Fd-dXu" id="RIw-TT-nog"/>
+                <outlet property="offerLabel" destination="nbx-5h-wDa" id="JXe-VS-kgY"/>
+            </connections>
+            <point key="canvasLocation" x="347.10144927536237" y="170.08928571428569"/>
+        </collectionViewCell>
+    </objects>
+</document>

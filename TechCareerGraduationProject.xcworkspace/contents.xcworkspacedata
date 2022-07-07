@@ -4,7 +4,137 @@
    <FileRef
       location = "group:TechCareerGraduationProject.xcodeproj">
    </FileRef>
-   <FileRef
-      location = "group:Pods/Pods.xcodeproj">
-   </FileRef>
+   <Group
+      location = "group:Kits"
+      name = "Kits">
+      <FileRef
+         location = "group:BaseKit/BaseKit.xcodeproj">
+      </FileRef>
+      <FileRef
+         location = "group:CommonKit/CommonKit.xcodeproj">
+      </FileRef>
+      <FileRef
+         location = "group:DependencyManagerKit/DependencyManagerKit.xcodeproj">
+      </FileRef>
+      <FileRef
+         location = "group:DummyRestaurantApiKit/DummyRestaurantApiKit.xcodeproj">
+      </FileRef>
+      <FileRef
+         location = "group:ImageUploaderKit/ImageUploaderKit.xcodeproj">
+      </FileRef>
+      <FileRef
+         location = "group:LottieAnimationConfigurableKit/LottieAnimationConfigurableKit.xcodeproj">
+      </FileRef>
+      <FileRef
+         location = "group:MealApiKit/MealApiKit.xcodeproj">
+      </FileRef>
+      <FileRef
+         location = "group:OnboardingManagerKit/OnboardingManagerKit.xcodeproj">
+      </FileRef>
+      <FileRef
+         location = "group:SignInValidatorKit/SignInValidatorKit.xcodeproj">
+      </FileRef>
+      <FileRef
+         location = "group:SignUpValidatorKit/SignUpValidatorKit.xcodeproj">
+      </FileRef>
+      <FileRef
+         location = "group:UserManagerKit/UserManagerKit.xcodeproj">
+      </FileRef>
+      <FileRef
+         location = "group:UserStorageManagerKit/UserStorageManagerKit.xcodeproj">
+      </FileRef>
+   </Group>
+   <Group
+      location = "group:Modules"
+      name = "Modules">
+      <FileRef
+         location = "group:CartModule/CartModule.xcodeproj">
+      </FileRef>
+      <FileRef
+         location = "group:HomeDetailModule/HomeDetailModule.xcodeproj">
+      </FileRef>
+      <FileRef
+         location = "group:HomeModule/HomeModule.xcodeproj">
+      </FileRef>
+      <FileRef
+         location = "group:LoginModule/LoginModule.xcodeproj">
+      </FileRef>
+      <FileRef
+         location = "group:MainTabBarModule/MainTabBarModule.xcodeproj">
+      </FileRef>
+      <FileRef
+         location = "group:OnboardingModule/OnboardingModule.xcodeproj">
+      </FileRef>
+      <FileRef
+         location = "group:ProfileModule/ProfileModule.xcodeproj">
+      </FileRef>
+      <FileRef
+         location = "group:RegisterModule/RegisterModule.xcodeproj">
+      </FileRef>
+      <FileRef
+         location = "group:RestaurantModule/RestaurantModule.xcodeproj">
+      </FileRef>
+      <FileRef
+         location = "group:RootModule/RootModule.xcodeproj">
+      </FileRef>
+   </Group>
+   <Group
+      location = "group:Tuist"
+      name = "Tuist">
+      <Group
+         location = "group:Dependencies"
+         name = "Dependencies">
+         <Group
+            location = "group:SwiftPackageManager"
+            name = "SwiftPackageManager">
+            <Group
+               location = "group:.build"
+               name = ".build">
+               <Group
+                  location = "group:checkouts"
+                  name = "checkouts">
+                  <FileRef
+                     location = "group:GoogleAppMeasurement/GoogleAppMeasurement.xcodeproj">
+                  </FileRef>
+                  <FileRef
+                     location = "group:GoogleDataTransport/GoogleDataTransport.xcodeproj">
+                  </FileRef>
+                  <FileRef
+                     location = "group:GoogleUtilities/GoogleUtilities.xcodeproj">
+                  </FileRef>
+                  <FileRef
+                     location = "group:SDWebImage/SDWebImage.xcodeproj">
+                  </FileRef>
+                  <FileRef
+                     location = "group:abseil-cpp-SwiftPM/abseil.xcodeproj">
+                  </FileRef>
+                  <FileRef
+                     location = "group:boringssl-SwiftPM/BoringSSL-GRPC.xcodeproj">
+                  </FileRef>
+                  <FileRef
+                     location = "group:firebase-ios-sdk/Firebase.xcodeproj">
+                  </FileRef>
+                  <FileRef
+                     location = "group:grpc-ios/gRPC.xcodeproj">
+                  </FileRef>
+                  <FileRef
+                     location = "group:gtm-session-fetcher/GTMSessionFetcher.xcodeproj">
+                  </FileRef>
+                  <FileRef
+                     location = "group:leveldb/leveldb.xcodeproj">
+                  </FileRef>
+                  <FileRef
+                     location = "group:lottie-ios/Lottie.xcodeproj">
+                  </FileRef>
+                  <FileRef
+                     location = "group:nanopb/nanopb.xcodeproj">
+                  </FileRef>
+                  <FileRef
+                     location = "group:promises/Promises.xcodeproj">
+                  </FileRef>
+               </Group>
+            </Group>
+         </Group>
+      </Group>
+   </Group>
 </Workspace>
